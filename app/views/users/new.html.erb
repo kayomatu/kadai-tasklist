@@ -6,17 +6,8 @@
   <div class="col-sm-6 offset-sm-3">
 
     <%= form_with(model: @user, local: true) do |f| %>
+    　<%= render 'layouts/error_messages', model: f.object %>
     
-      <% if @user.errors.any? %>
-        <div id="error_explanation" class="alert alert-warning">
-          <ul class="mb-0">
-            <% @user.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      
       <div class="form-group">
         <%= f.label :name, 'Name' %>
         <%= f.text_field :name, class: 'form-control' %>
